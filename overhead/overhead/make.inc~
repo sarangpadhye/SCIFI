@@ -1,0 +1,6 @@
+
+F95 = gfortran
+OPTS = -O3
+CC  = gcc
+INCS = -I. 
+

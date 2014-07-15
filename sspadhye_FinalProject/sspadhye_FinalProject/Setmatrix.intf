@@ -1,0 +1,9 @@
+
+        subroutine setmatrix(n, nzperrow, nnz, rows, cols, vals, rowptrs) 
+            use kindlytypes
+            implicit none
+            real(kind=real8),     dimension(:) :: vals
+            integer(kind=defint), dimension(:) :: rows, cols, rowptrs
+            integer(kind=defint)               :: n, nzperrow, nnz
+        end subroutine setmatrix
+

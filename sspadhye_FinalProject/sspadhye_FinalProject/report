@@ -1,0 +1,59 @@
+***********************************************************************************************************************
+						P573-Assignment 7
+						TITLE : Sparse Vector multiplication using COO and CSR
+						Date  : 12/20/2013
+***********************************************************************************************************************
+Technical specs :
+
+- Compiler 		: GCC 4.7
+- OS       		: Ubuntu 12,04 LTS
+- Processor             : Intel(R) Core(TM) i5 CPU M520 @2.40GHZ 2.40GHZ
+- System type           : 64-bit OS
+- Amount of memory	: 4.00 GB (3.86 usable)
+- Programming Language  : C Language
+=============================================================================================================================
+
+Question 1 : 
+Is load store qualitatively or even quantitatively predictive here? 
+
+Answer : Yes. The ratio of mem refs/Gflops is 1.5 for COO and on the other hand the the ratio for CSR is 1. On an average the ratio 
+remains the same i.e 1.5 for different values for nzperrow.
+
+
+Question 2 : 
+For larger nzperrow, what happens to the performance rates? 
+Does the relative difference in the performance of the two data change, and how? 
+
+Answer : It is observed that as nzperrow increases CSR becomes faster than COO. When nzperrow = 5 , 10 the CSR is about 1.4 to 1.6 faster.
+Also it is observed that when nzperrow is about 45 - 50 the values woulb be almost the same.
+
+Question 3 : 
+Recall that one of the data structures had an innermost loop that corresponded to a daxpy, while the other corresponded to a dotproduct.
+Does the relative performances of COO and CSR seem to match the relative load store ratios of those two? 
+
+Answer : The load store ratios for daxpy and dotproduct is 1.5/1
+Based on the tests, the ratio ranges from 1.3 to 1.6 . 
+Hence we can say that on an average we can consider that the ratio of COO to CSR matches with the load store ratios of daxpy and dotprodcut
+
+Question 4 :
+What is the performance relative to the peak possible performance of the platform used?
+For LU factorization, 85% or more of the platform's peak was achievable, so what about here? 
+
+
+
+
+Question 5 :
+The code sets up the matrix again for each different matrix order n.
+Is that necessary for the banded matrices tested here? 
+Can the call to setmatrix() be moved outside of the loop over matrix sizes?
+
+Yes it is necessary to set up the matrix because the diagonal in the banded matrix may change as we change n.
+No we cannot call to setmatrix() since n is changing.
+
+
+Sources
+=============
+
+1) Yashwant Kanetkar ,"Let us C"
+2) https://help.ubuntu.com/community/UsingTheTerminal
+2) Discussed this assignment with Pranam Acharya and Rohan Pillai

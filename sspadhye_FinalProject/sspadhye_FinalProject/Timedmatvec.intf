@@ -1,0 +1,17 @@
+
+        subroutine timedmatvec(errorflag, n, nnz, rows, cols, vals, whichone, &
+                        x, y, timetaken)
+            use kindlytypes
+            implicit none
+            integer(defint) ::  errorflag
+            integer(defint), value ::  n
+            integer(defint), value ::  nnz
+            integer(defint), value ::  whichone
+            integer(defint) ::  rows(*)
+            integer(defint) ::  cols(nnz)
+            real(real8)     ::  vals(nnz)
+            real(real8)     ::  x(n)
+            real(real8)     ::  y(n)
+            real(real8)     ::  timetaken
+        end subroutine timedmatvec
+

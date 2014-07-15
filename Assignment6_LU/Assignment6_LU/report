@@ -1,0 +1,48 @@
+***********************************************************************************************************************
+						P573-Assignment 6
+						TITLE : Implement Blas Level 2 and Level 3 to perform LU factorization using the matrix vector 								method
+						Date  : 11/2/2013
+***********************************************************************************************************************
+Technical specs :
+
+- Compiler 		: GCC 4.7 and MKL libraries
+- OS       		: Ubuntu 12,04 LTS
+- Processor             : Intel(R) Core(TM) i5 CPU M520 @2.40GHZ 2.40GHZ
+- System type           : 64-bit OS
+- Amount of memory	: 4.00 GB (3.86 usable)
+- Programming Language  : C Language
+=============================================================================================================================
+
+
+Files and folders :
+----------------------
+
+This folder contains
+
+LU_STUBS - This folder contains the complete test harness which was given as a part of this project
+In this folder there contains file LU4.c and LU8.c which are nnothing but the the Blas 2 and Blas 3 level versions of LU factorization.
+
+
+Questions :
+----------------------
+1) Is the performance of the level-2 BLAS version cache-limited?
+   
+Usually the the level -2 BLAS perform only O(n^2) flops on O(n^2) data that is why there performance is limited by the rate
+of the movement of data between different levels of memory. Hence we can say that that the performance of the level-2 BLAS version cache-   limited.
+
+
+2) Is the performance of the level-3 BLAS version cache-limited? (It should not be, but testing is needed to validate that claim).
+
+Usually the the level -2 BLAS perform only O(n^3) flops on O(n^3) data that is why there performance is not cache limited
+
+3) What seems to be a good (or even the best) blocksize to use?
+
+This depends upon the size of the matrix. A block size whhich evenly divides the matrix can be considered as a good blocksize.
+   
+4) Since a blocksize of nb = n makes the code just use LU4.c, for what blocksize do your timings show that the cachesize becomes a limiting factor? You should use a fixed matrix order n to answer this one. 
+
+Sources
+=============
+
+1) Discussed this assignment with Pranam Acharya.
+2) Lectures notes posted on the course website.

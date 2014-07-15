@@ -1,0 +1,91 @@
+***********************************************************************************************************************
+						P573  - Assignment 2
+						TITLE : Find the Overhead.
+						Date  : 9/16/2013
+***********************************************************************************************************************
+Technical specs :
+
+- Compiler 				: GCC 4.7
+- OS       				: Ubuntu 12,04 LTS
+- Processor             : Intel(R) Core(TM) i5 CPU M520 @2.40GHZ 2.40GHZ
+- System type           : 64-bit OS
+- Amount of memory		: 4.00 GB (3.86 usable)
+- Programming Language  : C Language
+
+Objective :
+===========
+The Objective of this assignment is to find the overhead time caused due to a call to a timer.
+
+Questions:
+
+1. Compile and test your code with optimization levels -O0, -O1, -O2, and -O3. 
+What happens to the timer overhead? If the overhead goes down, does the corresponding number of flops increase/decrease? 
+Is the change (if any) in the corresponding number of flops linear, flat, or uncorrelated?
+
+- I did test my code with optimization levels -O0 , -O1 , -O2 and -O3.
+After running matlab script the following results were observed
+
+a) For Optimization level -O0
+--------------------------------
+
+Average overhead time = 3.00595e-08 seconds
+Standard deviation for overhead times = 3.24061e-09 seconds
+
+Average overhead flops = 8.30833
+Standard deviation for overhead flops = 0.705039
+
+b) For Optimization level -O1
+--------------------------------
+
+Average overhead time = 2.72715e-08 seconds
+Standard deviation for overhead times = 2.03548e-09 seconds
+
+Average overhead flops = 8.15701
+Standard deviation for overhead flops = 0.602241
+
+c) For Optimization level -O2
+--------------------------------
+
+Average overhead time = 2.92042e-08 seconds
+Standard deviation for overhead times = 4.0382e-09 seconds
+
+Average overhead flops = 8.14946
+Standard deviation for overhead flops = 0.961363
+
+d) For Optimization level -O3
+--------------------------------
+
+Average overhead time = 2.14432e-08 seconds
+Standard deviation for overhead times = 1.13241e-09 seconds
+
+Average overhead flops = 5.84687
+Standard deviation for overhead flops = 0.308788
+
+The above reading clearly shows that as the Optimization level increases the overhead time decreases along with the Average Overhead times.We can say that the change
+in the overhead and nflops in linear
+
+2)Sticking with -O3, what is the minimum timing block size you need for reliable timings? Recall it is 100*(clock resolution + clock overhead) for P573
+
+Clock Resolution = 2.3842e-07
+Clock Overhead = 9.45e-08
+
+Timing block size : 33.29e-06
+
+
+3) Find the maximum (or theoretical peak) flop rate on the system you are using: 
+(flops/cycle)*(number of cores)*(number of hyperthreads per core)*(cycles/second) 
+For modern machines you can assume (flops/cycle) = 2, and can get the product of (number of cores)*(number of hyperthreads per core) from /proc/cpuinfo. Linux treats that product as the number of "processors" in the /proc file. The cycles/second are given as "cpu MHz" in the same file.
+
+= 2 * (4) * 2.4(Ghz)
+
+----> 19.2 Gflops
+
+4)Use the measures computational rate of the daxpy operation for a vector of length 4987 to find what percentage of the theoretical peak it achieves.
+ Hint: if it is over 100%, you have made a mistake. If it is a non-positive number, you've made an even worse mistake
+ 
+Percentage :19.68 %
+
+Sources
+=============
+
+1) Discussed this assignment with Rohan Pillai.

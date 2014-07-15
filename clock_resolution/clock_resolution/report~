@@ -1,0 +1,44 @@
+***********************************************************************************************************************
+						P573-Assignment 1
+						TITLE : FIND THE CLOCK RESOLUTION
+						Date  : 9/4/2013
+***********************************************************************************************************************
+Technical specs :
+
+- Compiler 		: GCC 4.7
+- OS       		: Ubuntu 12,04 LTS
+- Processor             : Intel(R) Core(TM) i5 CPU M520 @2.40GHZ 2.40GHZ
+- System type           : 64-bit OS
+- Amount of memory	: 4.00 GB (3.86 usable)
+- Programming Language  : C Language
+
+Objective :
+===========
+The objective of this assignment is to find the clock resolution of the processor. In order to find the same we are running some 
+C scripts in order to perform some "N" calculations (Additions) over "M" samples with disregards to what output the program is producing.
+While doing the the calculations the time before and after the calculation is measured and written to the output file.
+This file is then given as an input to matlab scripts in order to calculate the Resolution of the Clock.
+In this assignment I have used the timer gettimeofday() because it is more suitable for a linux based system.
+
+Output:
+========
+After running the Matlab script the following results were observed.
+========================================================================================================================
+
+Read in 9999 timings from file named results
+Number of timings read in: 9999
+Number of nonzero timings: 9999
+Finished after 43 cycles of differencing.
+Likely clock resolution from file results is 2.3842e-07 seconds.
+This is about 1/(4194304) seconds.
+
+=========================================================================================================================
+Issues Observed:
+================
+GCC Compiler could not identify CLOCK_MONOTONE and CLOCK_REALTIME when the the values were passed through clock_gettime().
+
+Sources
+=============
+
+1) Yashwant Kanetkar ,"Let us C"
+2) https://help.ubuntu.com/community/UsingTheTerminal 

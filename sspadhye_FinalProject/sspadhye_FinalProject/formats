@@ -1,0 +1,10 @@
+!
+! Format statements to avoid the stupid blank in column 1 everywhere.
+!
+    333 format(i1, 3x, i10, 3x, i12, 3x, es27.17, 3x, es27.17)
+    444 format(i10, 3x, i10, 3x, es27.17)
+    555 format(a, i12, a, es17.10)
+    666 format(a)
+    777 format(a, i12)
+    888 format(a, es24.17)
+    999 format(a, i12, a)

@@ -1,0 +1,30 @@
+***********************************************************************************************************************
+						P573  - Assignment 2
+						TITLE : Find the Overhead.
+						Date  : 9/16/2013
+***********************************************************************************************************************
+Technical specs :
+
+- Compiler 		: GCC 4.7
+- OS       		: Ubuntu 12,04 LTS
+- Processor             : Intel(R) Core(TM) i5 CPU M520 @2.40GHZ 2.40GHZ
+- System type           : 64-bit OS
+- Amount of memory	: 4.00 GB (3.86 usable)
+- Programming Language  : C Language
+
+Objective :
+===========
+The Objective of this assignment is to find the overhead time caused due to a call to a timer.
+
+Output:
+========
+
+Issues Observed:
+================
+GCC Compiler could not identify CLOCK_MONOTONE and CLOCK_REALTIME when the the values were passed through clock_gettime().
+
+Sources
+=============
+
+1) Yashwant Kanetkar ,"Let us C"
+2) https://help.ubuntu.com/community/UsingTheTerminal 

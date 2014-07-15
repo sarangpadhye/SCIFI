@@ -1,0 +1,11 @@
+1000000 20000000 1000000 11
+1000000 20000000 1000000 11
+   ^       ^        ^     ^
+   |       |        |     |
+   |       |        |     nonzeros per row
+   |       |        stride in matrix sizes
+   |       largest matrix size
+   smallest matrix size
+
+
+

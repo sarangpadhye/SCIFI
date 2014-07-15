@@ -1,0 +1,167 @@
+	.file	"findoverhead.c"
+	.section	.rodata
+.LC0:
+	.string	"r"
+.LC1:
+	.string	"sizes"
+.LC2:
+	.string	"a"
+.LC3:
+	.string	"timings.m"
+.LC4:
+	.string	"\nOpening Sizes!!"
+.LC5:
+	.string	"\nFile does not exists !!"
+.LC6:
+	.string	"\n----------------------"
+.LC7:
+	.string	"\nFile does exists"
+.LC8:
+	.string	"%d %d %d"
+.LC9:
+	.string	"\nVector Length is --> %d"
+.LC10:
+	.string	"\nreps is --> %d"
+.LC11:
+	.string	"\nnsamples is --> %d\n"
+.LC12:
+	.string	"overheads = [...\n"
+.LC13:
+	.string	"%1.16e\t%f\n"
+.LC14:
+	.string	"];"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$80, %rsp
+	movl	%edi, -68(%rbp)
+	movq	%rsi, -80(%rbp)
+	movl	$0, -4(%rbp)
+	movl	$.LC0, %edx
+	movl	$.LC1, %eax
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	fopen
+	movq	%rax, -40(%rbp)
+	movl	$.LC2, %edx
+	movl	$.LC3, %eax
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	fopen
+	movq	%rax, -32(%rbp)
+	movl	$.LC4, %eax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	cmpq	$0, -40(%rbp)
+	je	.L2
+	cmpq	$0, -32(%rbp)
+	jne	.L3
+.L2:
+	movl	$1, -4(%rbp)
+	movl	$.LC5, %eax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movl	$.LC6, %eax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movl	$1, %edi
+	call	exit
+.L3:
+	cmpl	$0, -4(%rbp)
+	jne	.L4
+	movl	$.LC7, %eax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movl	$.LC6, %eax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+.L4:
+	movl	$.LC8, %esi
+	leaq	-12(%rbp), %rdi
+	leaq	-16(%rbp), %rcx
+	leaq	-20(%rbp), %rdx
+	movq	-40(%rbp), %rax
+	movq	%rdi, %r8
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	__isoc99_fscanf
+	movl	-20(%rbp), %edx
+	movl	$.LC9, %eax
+	movl	%edx, %esi
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movl	-16(%rbp), %edx
+	movl	$.LC10, %eax
+	movl	%edx, %esi
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movl	-12(%rbp), %edx
+	movl	$.LC11, %eax
+	movl	%edx, %esi
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf
+	movq	-32(%rbp), %rax
+	movq	%rax, %rcx
+	movl	$17, %edx
+	movl	$1, %esi
+	movl	$.LC12, %edi
+	call	fwrite
+	movl	$0, -8(%rbp)
+	jmp	.L5
+.L6:
+	movl	-16(%rbp), %esi
+	movl	-20(%rbp), %eax
+	leaq	-48(%rbp), %rcx
+	leaq	-56(%rbp), %rdx
+	movl	%eax, %edi
+	call	overhead
+	movsd	-48(%rbp), %xmm1
+	movsd	-56(%rbp), %xmm0
+	movl	$.LC13, %edx
+	movq	-32(%rbp), %rax
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	movl	$2, %eax
+	call	fprintf
+	addl	$1, -8(%rbp)
+.L5:
+	movl	-12(%rbp), %eax
+	cmpl	%eax, -8(%rbp)
+	jl	.L6
+	movq	-32(%rbp), %rax
+	movq	%rax, %rcx
+	movl	$2, %edx
+	movl	$1, %esi
+	movl	$.LC14, %edi
+	call	fwrite
+	movq	-40(%rbp), %rax
+	movq	%rax, %rdi
+	call	fclose
+	movq	-32(%rbp), %rax
+	movq	%rax, %rdi
+	call	fclose
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"
+	.section	.note.GNU-stack,"",@progbits

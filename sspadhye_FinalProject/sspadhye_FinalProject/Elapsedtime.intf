@@ -1,0 +1,8 @@
+    !-------------------------------------------------------------------------
+    ! Must explicitly declare interface to elapsedtime() since it uses bind(C) 
+    !-------------------------------------------------------------------------
+        function elapsedtime() result(current_time) bind(c,name='elapsedtime')
+            use iso_c_binding
+            real(kind=c_double) :: current_time
+        end function elapsedtime
+
